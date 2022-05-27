@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class ProdutoController extends Controller
 {
     public function index() {
-        //return view('produtos.index');
         $produtos = Produto::all();
         return view('produtos/index', [
             'prods' => $produtos,
@@ -21,12 +20,10 @@ class ProdutoController extends Controller
     }
 
     public function ver(Produto $prod) {
-        //$produto = Produto::find($id);
-        //return $produto;
+
         return view('produtos/ver', [
             'produto' => $prod,
         ]);
-        //return view('produtos.ver');
     }
 
     public function inserir(Request $form) {
@@ -36,14 +33,9 @@ class ProdutoController extends Controller
             'descricao' => 'required'
         ]);
         
-        $produto = new Produto();
+            Produto::create($dados);
 
-        $produto->nome = $form->nome;
-        $produto->preco = $form->preco;
-        $produto->descricao = $form->descricao;
 
-        $produto->save();
-        
 
         return redirect()->route('produto');
     }
