@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PratoController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,9 @@ Route::put('/produto/editar/{prod}', [ProdutoController::class, 'editarGravar'])
 Route::get('/prato', [PratoController::class, 'index'])->name('prato');
 Route::get('/prato/criar', [PratoController::class, 'criar'])->name('prato/criar');
 Route::get('/prato/ver/{pra}', [PratoController::class, 'ver'])->name('prato/ver');
-
 Route::post('/prato/criar', [PratoController::class, 'inserir'])->name('prato/inserir');
+
+//----------------------------Usuários---------------------------------
+Route::get('login', [UsuariosController::class, 'index'])->name('usuario.index');
+Route::post('login', [UsuariosController::class, 'login'])->name('usuario.login');
+Route::get('logout', [UsuariosController::class, 'logout'])->name('usuario.logout');

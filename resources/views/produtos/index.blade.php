@@ -5,7 +5,7 @@
 @section('corpo')
     <h1>Index de Produto</h1>
 
-    <p><a href="{{ route('produto/criar') }}">Criar um produto</a></p>
+    <p><a href="{{ route('produto/criar') }}" class="btn btn-primary">Criar um produto</a></p>
 
     <table border="1">
         <tr>
@@ -25,4 +25,7 @@
         @endforeach
         
     </table>
+
+    <img src="{{ asset('img/blog.jpg') }}">
+
 @endsection
