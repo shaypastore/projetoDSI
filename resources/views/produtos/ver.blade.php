@@ -7,6 +7,6 @@
     <p><strong>{{$produto->nome}}</strong></p>
     <p>Descrição: {{$produto->descricao}}</p>
     <p>Preço: {{ number_format($produto->preco, 2)}}</p>
+    <p><img src="{{asset('/img/'.$produto->img)}}"></p>
 
-    
 @endsection

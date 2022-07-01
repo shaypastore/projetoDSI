@@ -5,11 +5,14 @@
 @section('corpo')
 
     <h1>Produtos - Criar</h1>
-    <form action="{{ route('produto/inserir') }}" method="post">
+    <form action="{{ route('produto/inserir') }}" method="post" enctype="multipart/form-data">
         @csrf
         
         <p><input type="text" name="nome" placeholder="Nome"></p>
         <p><input type="number" name="preco" placeholder="Preço"></p>
+
+        <p>Foto: <input type="file" name="imagem"></p>
+
         <p><textarea name="descricao" cols="30" rows="10" placeholder="Descrição"></textarea></p>
         <p><input type="submit" value="Gravar"></p>
     </form>

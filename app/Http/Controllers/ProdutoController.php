@@ -37,6 +37,9 @@ class ProdutoController extends Controller
             'descricao' => 'required'
         ]);
 
+        $imgCaminho = $form->file('imagem')->store('', 'imagens');
+        $dados['img'] = $imgCaminho;
+
         Produto::create($dados);
 
 
