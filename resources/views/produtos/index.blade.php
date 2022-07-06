@@ -1,26 +1,24 @@
 @extends('templates/layout')
 
-@section('titulo', 'Página de Produtos')
+@section('titulo', 'Página de Textos')
 
 @section('corpo')
-    <h1>Index de Produto</h1>
+    <h1>Index Textos</h1>
 
-    <p><a href="{{ route('produto/criar') }}" class="btn btn-primary">Criar um produto</a></p>
+    <p><a href="{{ route('texto/criar') }}" class="btn btn-primary">Criar novo texto</a></p>
 
     <table border="1">
         <tr>
-            <th>Produto</th>
-            <th>Preço</th>
+            <th>Texto</th>
         </tr>
 
-        @foreach($prods as $prod)
+        @foreach($texs as $tex)
         <tr>
             <td>
-                <a href="{{route('produto/ver', $prod->id)}}">
-                {{ $prod->nome }}
+                <a href="{{route('texto/ver', $tex->id)}}">
+                {{ $tex->titulo }}
                 </a>
             </td>
-            <td>{{ $prod->preco }}</td>
         </tr>    
         @endforeach
         

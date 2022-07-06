@@ -1,15 +1,14 @@
 @extends('templates/layout')
 
-@section('titulo', 'Página de Produtos - Criar')
+@section('titulo', 'Criar novo Texto')
 
 @section('corpo')
 
-    <h1>Produtos - Criar</h1>
-    <form action="{{ route('produto/inserir') }}" method="post" enctype="multipart/form-data">
+    <h1>Textos - Criar</h1>
+    <form action="{{ route('texto/inserir') }}" method="post" enctype="multipart/form-data">
         @csrf
         
-        <p><input type="text" name="nome" placeholder="Nome"></p>
-        <p><input type="number" name="preco" placeholder="Preço"></p>
+        <p><input type="text" name="titulo" placeholder="Título"></p>
 
         <p>Foto: <input type="file" name="imagem"></p>
 

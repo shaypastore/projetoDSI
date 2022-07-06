@@ -1,12 +1,11 @@
 @extends('templates/layout')
 
-@section('titulo', 'Página de Produtos - Ver')
+@section('titulo', 'Página Textos - Ver')
 
 @section('corpo')
-    <h1>Produtos Ver</h1>
-    <p><strong>{{$produto->nome}}</strong></p>
-    <p>Descrição: {{$produto->descricao}}</p>
-    <p>Preço: {{ number_format($produto->preco, 2)}}</p>
-    <p><img src="{{asset('/img/'.$produto->img)}}"></p>
+    <h1>Textos Ver</h1>
+    <p><strong>{{$texto->titulo}}</strong></p>
+    <p>Descrição: {{$texto->descricao}}</p>
+    <p><img src="{{asset('/img/'.$texto->img)}}"></p>
 
 @endsection

@@ -1,10 +1,10 @@
 @extends('templates/layout')
 
-@section('titulo', 'Página de Produtos - Editar')
+@section('titulo', 'Edição de Textos')
 
 @section('corpo')
 
-<h1>Produtos - Editar</h1>
+<h1>Textos - Editar</h1>
 
 @if( $errors ->any())
 <p>Preencha os campos corretamente!</p>
@@ -16,14 +16,13 @@
 </ul>
 @endif
 
-<form action="{{ route('produto/editar', $prod->id) }}" method="post">
+<form action="{{ route('texto/editar', $tex->id) }}" method="post">
     @csrf
     @method('put')
 
-    <p><input value="{{ old('nome') ?: $prod->nome }}" type="text" name="nome" placeholder="Nome do produto" value=""></p>
-    <p><input value="{{ old('preco') ?: $prod->preco }}" type="number" name="preco" placeholder="Preço"></p>
+    <p><input value="{{ old('titulo') ?: $tex->titulo }}" type="text" name="titulo" placeholder="Título para o Texto" value=""></p>
     <p><textarea name="descricao" cols="30" rows="10" placeholder="Descrição">{{
-    old('descricao') ?: $prod->descricao }}</textarea></p>
+    old('descricao') ?: $tex->descricao }}</textarea></p>
     <p><input type="submit" value="Gravar"></p>
 </form>
 

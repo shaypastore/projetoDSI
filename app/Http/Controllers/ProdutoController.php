@@ -2,68 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produto;
+use App\Models\Texto;
 use Illuminate\Http\Request;
 
-class ProdutoController extends Controller
+class TextoController extends Controller
 {
     public function index()
     {
-        $produtos = Produto::all();
-        return view('produtos/index', [
-            'prods' => $produtos,
+        $textos = Texto::all();
+        return view('textos/index', [
+            'texs' => $textos,
         ]);
     }
 
 
     public function criar()
     {
-        return view('produtos/criar');
+        return view('textos/criar');
     }
 
-    public function ver(Produto $prod)
+    public function ver(Texto $tex)
     {
 
-        return view('produtos/ver', [
-            'produto' => $prod,
+        return view('textos/ver', [
+            'texto' => $tex,
         ]);
     }
 
     public function inserir(Request $form)
     {
         $dados = $form->validate([
-            'nome' => 'required',
-            'preco' => 'required',
+            'titulo' => 'required',
             'descricao' => 'required'
         ]);
 
         $imgCaminho = $form->file('imagem')->store('', 'imagens');
         $dados['img'] = $imgCaminho;
 
-        Produto::create($dados);
+        Texto::create($dados);
 
 
 
-        return redirect()->route('produto');
+        return redirect()->route('textos');
     }
 
 
-    public function editar(Produto $prod)
+    public function editar(Texto $tex)
     {
-        return view('produtos/editar', ['prod' => $prod]);
+        return view('textos/editar', ['tex' => $tex]);
     }
 
     
-    public function editarGravar(Request $form, Produto $prod)
+    public function editarGravar(Request $form, Texto $tex)
     {
         $dados = $form->validate([
-            'nome' => 'required|max:255',
-            'preco' => 'required',
+            'titulo' => 'required|max:255',
             'descricao' => 'required'
         ]);
 
-        $prod->fill($dados);
-        $prod->save();
-        return redirect()->route('produto');
+        $tex->fill($dados);
+        $tex->save();
+        return redirect()->route('texto');
     }
 }

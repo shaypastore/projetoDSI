@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\PratoController;
-use App\Http\Controllers\ProdutoController;
+//use App\Http\Controllers\PratoController;
+use App\Http\Controllers\TextoController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,22 +19,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('entrada');
 });
-//---------------------------Produtos-------------------------
-Route::get('/produto', [ProdutoController::class, 'index'])->name('produto');
-Route::get('/produto/criar', [ProdutoController::class, 'criar'])->name('produto/criar');
-Route::get('/produto/ver/{prod}', [ProdutoController::class, 'ver'])->name('produto/ver');
-
-Route::post('/produto/criar', [ProdutoController::class, 'inserir'])->name('produto/inserir');
-
-Route::get('/produto/editar/{prod}', [ProdutoController::class, 'editar'])->name('produto/editar');
-Route::put('/produto/editar/{prod}', [ProdutoController::class, 'editarGravar']);
+//---------------------------Textos-------------------------
+Route::get('/texto', [TextoController::class, 'index'])->name('texto');
+Route::get('/texto/criar', [TextoController::class, 'criar'])->name('texto/criar');
+Route::get('/texto/ver/{tex}', [TextoController::class, 'ver'])->name('texto/ver');
+Route::post('/texto/criar', [TextoController::class, 'inserir'])->name('texto/inserir');
+Route::get('/texto/editar/{tex}', [TextoController::class, 'editar'])->name('texto/editar');
+Route::put('/texto/editar/{tex}', [TextoController::class, 'editarGravar']);
 
 //---------------------------Pratos-------------------------
-
-Route::get('/prato', [PratoController::class, 'index'])->name('prato');
-Route::get('/prato/criar', [PratoController::class, 'criar'])->name('prato/criar');
-Route::get('/prato/ver/{pra}', [PratoController::class, 'ver'])->name('prato/ver');
-Route::post('/prato/criar', [PratoController::class, 'inserir'])->name('prato/inserir');
+//Route::get('/prato', [PratoController::class, 'index'])->name('prato');
+//Route::get('/prato/criar', [PratoController::class, 'criar'])->name('prato/criar');
+//Route::get('/prato/ver/{pra}', [PratoController::class, 'ver'])->name('prato/ver');
+//Route::post('/prato/criar', [PratoController::class, 'inserir'])->name('prato/inserir');
 
 //----------------------------Usuários---------------------------------
 Route::get('login', [UsuariosController::class, 'index'])->name('usuario.index');
