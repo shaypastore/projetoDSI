@@ -22,22 +22,25 @@ KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We
                         <use xlink:href="#bootstrap"></use>
                     </svg>
                 </a>
-
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="" class="nav-link px-2 text-secondary">Home</a></li>
+                    
+                    @if (session('usuario'))
+                    Usuário autenticado: {{ session('usuario.nome') }}
+                    <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li>
+                    @else
+                    <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white hidden">Criar Artigo</a></li>
+                    @endif
+                    
+                    <!-- <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li> -->
                 </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
-                </form>
-
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    @if (session('usuario'))
+                    Usuário autenticado: {{ session('usuario.nome') }}
+                    <a class="btn btn-outline-light me-2" href="{{ route('usuario.logout') }}">Sair</a>
+                    @else
+                    <a class="btn btn-outline-light me-2" href="{{ route('usuario.index') }}">Autenticar</a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -45,18 +48,36 @@ KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We
 
 </body>
 <main class="container pt-2">
-    <div>
-        @if (session('usuario'))
-        Usuário autenticado: {{ session('usuario.nome') }}
-        <a href="{{ route('usuario.logout') }}">Sair</a>
-        @else
-        <a href="{{ route('usuario.index') }}">Autenticar</a>
-        @endif
-    </div>
+
+
+
+
     @yield('content')
     @yield('corpo')
 
 </main>
 
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                    <use xlink:href="#twitter"></use>
+                </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                    <use xlink:href="#instagram"></use>
+                </svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                    <use xlink:href="#facebook"></use>
+                </svg></a></li>
+    </ul>
+</footer>
 
 </html>

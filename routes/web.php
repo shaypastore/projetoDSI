@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\PratoController;
-use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ArtigoController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,25 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('entrada');
-});
-//---------------------------Produtos-------------------------
-Route::get('/produto', [ProdutoController::class, 'index'])->name('produto');
-Route::get('/produto/criar', [ProdutoController::class, 'criar'])->name('produto/criar');
-Route::get('/produto/ver/{prod}', [ProdutoController::class, 'ver'])->name('produto/ver');
+Route::get('/', [IndexController::class, 'index']);
+//---------------------------Artigos-------------------------
+Route::get('/artigo', [ArtigoController::class, 'index'])->name('artigo');
+Route::get('/artigo/criar', [ArtigoController::class, 'criar'])->name('artigo/criar');
+Route::get('/artigo/ver/{art}', [ArtigoController::class, 'ver'])->name('artigo/ver');
 
-Route::post('/produto/criar', [ProdutoController::class, 'inserir'])->name('produto/inserir');
+Route::post('/artigo/criar', [ArtigoController::class, 'inserir'])->name('artigo/inserir');
 
-Route::get('/produto/editar/{prod}', [ProdutoController::class, 'editar'])->name('produto/editar');
-Route::put('/produto/editar/{prod}', [ProdutoController::class, 'editarGravar']);
-
-//---------------------------Pratos-------------------------
-
-Route::get('/prato', [PratoController::class, 'index'])->name('prato');
-Route::get('/prato/criar', [PratoController::class, 'criar'])->name('prato/criar');
-Route::get('/prato/ver/{pra}', [PratoController::class, 'ver'])->name('prato/ver');
-Route::post('/prato/criar', [PratoController::class, 'inserir'])->name('prato/inserir');
+Route::get('/artigo/editar/{art}', [ArtigoController::class, 'editar'])->name('artigo/editar');
+Route::put('/artigo/editar/{art}', [ArtigoController::class, 'editarGravar']);
 
 //----------------------------Usuários---------------------------------
 Route::get('login', [UsuariosController::class, 'index'])->name('usuario.index');
