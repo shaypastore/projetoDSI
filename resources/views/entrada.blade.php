@@ -1,6 +1,13 @@
 @extends('templates/layout')
 @section('titulo', 'Página inicial')
 @section('corpo')
+<<<<<<< HEAD
+=======
+    <h1>Página inicial Blog</h1>
+    <p>Você está entrando no site legal</p>
+    <p><a href="{{ route('produto') }}">Produtos</a></p>
+    <p><a href="{{ route('prato') }}">Pratos</a></p>
+>>>>>>> 8f5a2aaa2c47d656d5eb35c8f65e26d7ff038f3b
 
 <div class="px-4 pt-5 my-5 text-center border-bottom">
     <h1 class="display-4 fw-bold">Página Inicial do meu Blog</h1>
