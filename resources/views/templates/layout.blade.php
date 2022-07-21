@@ -29,9 +29,8 @@ KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We
                     Usuário autenticado: {{ session('usuario.nome') }}
                     <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li>
                     @else
-                    <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white hidden">Criar Artigo</a></li>
-                    @endif
-                    
+                    <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li>
+                    @endif              
                     <!-- <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li> -->
                 </ul>
                 <div class="text-end">
