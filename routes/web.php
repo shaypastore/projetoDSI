@@ -16,14 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/', [IndexController::class, 'index'])->name('inicio');
 //---------------------------Artigos-------------------------
 Route::get('/artigo', [ArtigoController::class, 'index'])->name('artigo');
 Route::get('/artigo/criar', [ArtigoController::class, 'criar'])->name('artigo/criar');
 Route::get('/artigo/ver/{art}', [ArtigoController::class, 'ver'])->name('artigo/ver');
-
 Route::post('/artigo/criar', [ArtigoController::class, 'inserir'])->name('artigo/inserir');
-
 Route::get('/artigo/editar/{art}', [ArtigoController::class, 'editar'])->name('artigo/editar');
 Route::put('/artigo/editar/{art}', [ArtigoController::class, 'editarGravar']);
 
@@ -31,3 +29,5 @@ Route::put('/artigo/editar/{art}', [ArtigoController::class, 'editarGravar']);
 Route::get('login', [UsuariosController::class, 'index'])->name('usuario.index');
 Route::post('login', [UsuariosController::class, 'login'])->name('usuario.login');
 Route::get('logout', [UsuariosController::class, 'logout'])->name('usuario.logout');
+
+Route::post('comentar', [ArtigoController::class, 'comentar'])->name('comentar');

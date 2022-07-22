@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artigo;
+use App\Models\Comentario;
 use Illuminate\Http\Request;
 
 class ArtigoController extends Controller
@@ -39,7 +40,7 @@ class ArtigoController extends Controller
         $dados['img'] = $imgCaminho;
         Artigo::create($dados);
 
-        return redirect()->route('artigo');
+        return redirect()->route('inicio');
     }
 
 
@@ -59,5 +60,17 @@ class ArtigoController extends Controller
         $art->fill($dados);
         $art->save();
         return redirect()->route('artigo');
+    }
+
+    public function comentar (Request $form)
+    {
+        $comentario = new Comentario();
+        $comentario->comentario = $form->comentario;
+        $comentario->usuario_id = session()->get("usuario.id");
+        $comentario->artigo_id = $form->id;
+        $comentario->save();
+
+        return back();
+
     }
 }

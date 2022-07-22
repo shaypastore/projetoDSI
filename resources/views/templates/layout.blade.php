@@ -23,13 +23,11 @@ KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We
                     </svg>
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="" class="nav-link px-2 text-secondary">Home</a></li>
+                    <li><a href="{{ route('inicio') }}" class="nav-link px-2 text-secondary">Home</a></li>
                     
                     @if (session('usuario'))
-                    Usuário autenticado: {{ session('usuario.nome') }}
                     <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li>
-                    @else
-                    <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li>
+                    
                     @endif              
                     <!-- <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li> -->
                 </ul>
