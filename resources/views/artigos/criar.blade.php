@@ -1,19 +1,38 @@
 @extends('templates/layout')
 
-@section('titulo', 'Página de Artigos - Criar')
+@section('titulo', 'Criar novos Artigos')
 
 @section('corpo')
 
-    <h1>Artigos - Criar</h1>
-    <form action="{{ route('artigo/inserir') }}" method="post" enctype="multipart/form-data">
-        @csrf
-        
-        <p><input type="text" name="titulo" placeholder="Nome"></p>
-
-        <p>Foto: <input type="file" name="img"></p>
-
-        <p><textarea name="descricao" cols="30" rows="10" placeholder="Descrição"></textarea></p>
-        <p><input type="submit" value="Gravar"></p>
-    </form>
+    <div class="row">    
+	    <div class="col-md-8 col-md-offset-2">
+    		<h1>Criar novo artigo</h1>	
+            <form action="{{ route('artigo/inserir') }}" method="post" enctype="multipart/form-data">
+            @csrf    		     		    
+    		    <div class="form-group">
+    		        <label for="title">Título <span class="require">*</span></label>
+    		        <input type="text" class="form-control" name="titulo" placeholder="Nome">
+    		    </div> 		    
+    		    <div class="form-group">
+    		        <label for="description">Descrição</label>
+    		        <textarea rows="5" name="descricao" class="form-control" name="description" placeholder="Descrição"></textarea>
+    		    </div>
+    		    
+    		    <div class="form-group">
+                    <p>Foto: <input type="file" name="img"></p>
+    		    </div>
+    		    
+    		    <div class="form-group">
+    		        <button type="submit" value="Gravar" class="btn btn-primary">
+    		            Criar
+    		        </button>
+    		        <button class="btn btn-default">
+    		            Cancel
+    		        </button>
+    		    </div> 
+    		</form>
+		</div>
+		
+	</div>
     
 @endsection
