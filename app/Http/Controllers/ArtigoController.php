@@ -73,4 +73,14 @@ class ArtigoController extends Controller
         return back();
 
     }
+
+    public function listaComentario(Artigo $art)
+    {
+        $comentario = Comentario::where('artigo_id', $art->id);
+        return view('artigos/ver', [
+            'comentarios' => $comentario,
+        ]);
+    }
+
+
 }

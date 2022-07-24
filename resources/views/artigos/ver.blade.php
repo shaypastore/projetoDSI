@@ -23,9 +23,9 @@
     <p></p>
 </form>
 
-{{--@foreach($comentario as $com)          
+{{--@foreach($comentarios as $com)          
             <div>
-                <p>Comentário: {{$comentario}}</p>
+                <p>Comentário: {{$com}}</p>
 </div>
 <!-- Divider-->
 <hr class="my-4">
