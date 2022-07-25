@@ -18,14 +18,16 @@
     <p><input type="submit" class="btn btn-dark" value="Gravar"></p>
     <input type="hidden" name="id" value="{{$artigo->id}}">
     @else
-    Para comentar, é necessário estar autenticado
+    <p><i>*Para comentar, é necessário estar autenticado</i></p>
+    <hr class="my-4">
     @endif
-    <p></p>
 </form>
 
 @foreach($comentarios as $com)
 <div>
-    <p>Comentário: {{$com}}</p>
+    <P><b>Usuário: {{$com->usuario->nome}}</b></P>
+    <p>Comentário: {{$com->comentario}}</p>
+
 </div>
 <!-- Divider-->
 <hr class="my-4">

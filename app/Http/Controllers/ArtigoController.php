@@ -22,9 +22,9 @@ class ArtigoController extends Controller
         return view('artigos/criar');
     }
 
-    public function ver(Artigo $art, Comentario $comentario)
+    public function ver(Artigo $art)
     {
-        $comentario = Comentario::where('artigo_id', $art->id);
+        $comentario = Comentario::where('artigo_id', $art->id)->with('usuario')->get();
         return view('artigos/ver', [
             'artigo' => $art,
             'comentarios' => $comentario,
