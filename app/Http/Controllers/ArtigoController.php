@@ -22,13 +22,15 @@ class ArtigoController extends Controller
         return view('artigos/criar');
     }
 
-    public function ver(Artigo $art)
+    public function ver(Artigo $art, Comentario $comentario)
     {
-
+        $comentario = Comentario::where('artigo_id', $art->id);
         return view('artigos/ver', [
             'artigo' => $art,
+            'comentarios' => $comentario,
         ]);
     }
+
 
     public function inserir(Request $form)
     {
@@ -73,14 +75,5 @@ class ArtigoController extends Controller
         return back();
 
     }
-
-    public function listaComentario(Artigo $art)
-    {
-        $comentario = Comentario::where('artigo_id', $art->id);
-        return view('artigos/ver', [
-            'comentarios' => $comentario,
-        ]);
-    }
-
 
 }

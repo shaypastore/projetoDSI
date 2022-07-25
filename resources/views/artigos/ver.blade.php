@@ -23,12 +23,12 @@
     <p></p>
 </form>
 
-{{--@foreach($comentarios as $com)          
-            <div>
-                <p>Comentário: {{$com}}</p>
+@foreach($comentarios as $com)
+<div>
+    <p>Comentário: {{$com}}</p>
 </div>
 <!-- Divider-->
 <hr class="my-4">
-@endforeach--}}
+@endforeach
 
 @endsection
