@@ -3,9 +3,9 @@
 @section('corpo')
 
 <div class="px-4 pt-5 my-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold">Meu Blog</h1>
+    <h1 class="display-4 fw-bold">Blog de Notícias</h1>
     <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <p class="lead mb-4">Notícias, reportagens, entrevistas, fotos e vídeos sobre programas e audiências de televisão. Um blog ligado em cultura, literatura e tudo que gira ao redor do mundo do livro e seus autores. Informações exclusivas, análises e bastidores do mundo dos negócios.</p>
     </div>
     <div class="overflow-hidden" style="max-height: 30vh;">
         <div class="container px-5">

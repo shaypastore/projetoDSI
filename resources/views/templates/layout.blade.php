@@ -25,7 +25,7 @@ KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="{{ route('inicio') }}" class="nav-link px-2 text-secondary">Home</a></li>
                     
-                    @if (session('usuario'))
+                    @if (session('usuario.papel') == "Admin")
                     <li><a href="{{ route('artigo/criar') }}" class="nav-link px-2 text-white">Criar Artigo</a></li>
                     
                     @endif              
